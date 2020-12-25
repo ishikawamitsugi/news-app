@@ -41,7 +41,11 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
             title={item.title}
             imageUrl={item.urlToImage}
             author={item.author}
-            onPress={() => navigation.navigate("Article")}
+            onPress={() =>
+              navigation.navigate("Article", {
+                article: item,
+              })
+            }
           />
         )}
         keyExtractor={(item, index) => {
