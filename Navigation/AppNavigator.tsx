@@ -42,8 +42,6 @@ const ClipStack = () => {
 const screenOption = ({ route }: any) => {
   return {
     tabBarIcon: ({ color, size }: any) => {
-      let iconName: string;
-
       if (route.name === "Home") {
         return <FontAwesome name={"home"} size={size} color={color} />;
       } else if (route.name === "Clip") {
