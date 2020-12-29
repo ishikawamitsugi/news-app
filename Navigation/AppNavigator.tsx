@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, SafeAreaView, Platform } from "react-native";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeSceen from "../screens/HomeScreen";

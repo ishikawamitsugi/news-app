@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  SafeAreaView,
-  StyleSheet,
-  AppState,
-} from "react-native";
+import { Text, TouchableOpacity, SafeAreaView, StyleSheet } from "react-native";
 import { WebView } from "react-native-webview";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addClip,
   ADD_CLIP,
@@ -26,8 +19,6 @@ export const ArticleScreen: React.FC<any> = ({ route }) => {
   // routeから渡したarticleをここで取得する
   const { article } = route.params;
   const dispatch = useDispatch();
-  const clip = useSelector((state) => state);
-  console.log("ReduxState: ", clip);
 
   return (
     <React.Fragment>
