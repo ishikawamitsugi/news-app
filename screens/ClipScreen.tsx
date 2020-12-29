@@ -1,12 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  Platform,
-  FlatList,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Platform, FlatList } from "react-native";
 import { RootState } from "../store";
 import ListItem from "../components/ListItem";
 
@@ -29,19 +23,17 @@ const ClipScreen: React.FC<any> = ({ navigation }) => {
         data={clips}
         renderItem={({ item }) => (
           <ListItem
-            title={item.article.title}
-            imageUrl={item.article.urlToImage}
-            author={item.article.author}
-            onPress={() => {
-              return navigation.navigate("Article", {
-                article: item.article,
-              });
-            }}
+            title={item.title}
+            imageUrl={item.urlToImage}
+            author={item.author}
+            onPress={() =>
+              navigation.navigate("Article", {
+                article: item,
+              })
+            }
           />
         )}
-        keyExtractor={(item, index) => {
-          return index.toString();
-        }}
+        keyExtractor={(index) => index.toString()}
       ></FlatList>
     </SafeAreaView>
   );
