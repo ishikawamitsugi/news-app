@@ -33,7 +33,7 @@ const ClipScreen: React.FC<any> = ({ navigation }) => {
             }
           />
         )}
-        keyExtractor={(index) => index.toString()}
+        keyExtractor={(item, index) => item.urlToImage}
       ></FlatList>
     </SafeAreaView>
   );
