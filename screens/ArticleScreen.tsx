@@ -10,6 +10,7 @@ import {
 } from "../store/actions/user";
 import ClipButton from "../components/ClipButton";
 import { RootState } from "../store";
+import Loading from "../components/Loading";
 
 const styles = StyleSheet.create({
   droidSafeArea: {
@@ -43,7 +44,11 @@ export const ArticleScreen: React.FC<any> = ({ route }) => {
     <React.Fragment>
       <SafeAreaView style={styles.droidSafeArea}>
         <ClipButton onPress={toggleClip} enabled={isCliped()} />
-        <WebView source={{ uri: article.url }} />
+        <WebView
+          source={{ uri: article.url }}
+          startInLoadingState={true}
+          renderLoading={() => <Loading />}
+        />
       </SafeAreaView>
     </React.Fragment>
   );

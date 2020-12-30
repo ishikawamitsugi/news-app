@@ -3,6 +3,7 @@ import { StyleSheet, FlatList, SafeAreaView, Platform } from "react-native";
 import ListItem from "../components/ListItem";
 import Constants from "expo-constants";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 const styles = StyleSheet.create({
   droidSafeArea: {
@@ -18,14 +19,16 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
     "country=jp&" +
     `apiKey=${Constants.manifest.extra.newsApiKey}`;
   const [articles, setArticles] = useState<any>([]);
-
+  const [loading, setLoading] = useState<boolean>(false);
   const fetchArticles = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(url);
       setArticles(response.data.articles);
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -52,6 +55,7 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
           return index.toString();
         }}
       ></FlatList>
+      {loading && <Loading />}
     </SafeAreaView>
   );
 };
